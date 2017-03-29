@@ -25,8 +25,17 @@ cleanRepo(function () {
     interval = animateProgress('Installing dependencies');
   }, 500);
 
+  copyEnvExample();
+
   installDeps();
 });
+
+/**
+ * Copy .env.example to .env
+ */
+function copyEnvExample() {
+  shell.cp('.env.example', '.env');
+}
 
 /**
  * Deletes the .git folder in dir
