@@ -56,3 +56,13 @@ if (exec('git add . --all && git commit -qm "Remove default example"').code !== 
 }
 
 echo('\nCleanup done. Happy Coding!!!');
+
+echo('\nNot yet. Stripping repo bare..');
+rm('-rf', '.git');
+rm('-rf', '.github');
+rm('CODE_OF_CONDUCT.md');
+rm('Changelog.md');
+rm('LICENSE.md');
+rm('MAINTAINERS');
+echo('# New Project').to('README.md');
+addCheckMark();
