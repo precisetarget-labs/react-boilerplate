@@ -13,6 +13,7 @@ const defaults = require('lodash/defaultsDeep');
 const webpack = require('webpack');
 const pkg = require(join(process.cwd(), 'package.json'));
 const dllPlugin = require('../config').dllPlugin;
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 if (!pkg.dllPlugin) { process.exit(0); }
 
@@ -30,6 +31,12 @@ module.exports = require('./webpack.base.babel')({
   },
   plugins: [
     new webpack.DllPlugin({ name: '[name]', path: join(outputPath, '[name].json') }), // eslint-disable-line no-new
+
+    // Add support to read from .env in dev mode (.env is REQUIRED)
+    new DotenvPlugin({
+      sample: './.env.example',
+      path: './.env',
+    }),
   ],
   performance: {
     hints: false,

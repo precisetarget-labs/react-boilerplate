@@ -89,6 +89,9 @@
       "jest": true,
       "es6": true
     },
+    "globals": {
+      "DEBUG_MODE": true
+    },
     "plugins": [
       "redux-saga",
       "react",
@@ -290,6 +293,7 @@
     "url-loader": "0.5.7",
     "webpack": "2.2.0-rc.3",
     "webpack-dev-middleware": "1.9.0",
+    "webpack-dotenv-plugin": "1.3.2",
     "webpack-hot-middleware": "2.15.0"
   }
 }

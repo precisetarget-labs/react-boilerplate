@@ -5,6 +5,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const utils = require('./utils');
+
 module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign({ // Compile into js/build.js
@@ -73,6 +75,10 @@ module.exports = (options) => ({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
+
+      // Define globals via env values
+      DEBUG_MODE: JSON.stringify(utils.validatedEnvVar('DEBUG_MODE')),
+
     }),
     new webpack.NamedModulesPlugin(),
   ]),
