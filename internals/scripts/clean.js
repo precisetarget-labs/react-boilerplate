@@ -32,8 +32,9 @@ rm('-rf', 'app/translations')
 mv('internals/templates/translations', 'app');
 
 // Handle utils/
-rm('-rf', 'app/utils');
-mv('internals/templates/utils', 'app')
+// SKIP: We want request.js
+// rm('-rf', 'app/utils');
+// mv('internals/templates/utils', 'app')
 
 // Replace the files in the root app/ folder
 cp('internals/templates/app.js', 'app/app.js');
